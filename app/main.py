@@ -10,7 +10,7 @@ from app.data import Database
 from app.graph import chart
 from app.machine import Machine
 
-SPRINT = 0
+SPRINT = 2
 APP = Flask(__name__)
 
 
@@ -50,7 +50,7 @@ def view():
         x=x_axis,
         y=y_axis,
         target=target,
-    ).to_json()
+    ).to_json()           # Convert chart to JSON
     return render_template(
         "view.html",
         options=options,
@@ -58,7 +58,7 @@ def view():
         y_axis=y_axis,
         target=target,
         count=db.count(),
-        graph=graph,
+        graph=graph,      # Pass JSON to template
     )
 
 
